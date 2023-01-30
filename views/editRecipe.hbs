@@ -1,0 +1,82 @@
+<nav class="navbar navbar-expand-sm navbar-dark">
+    <div class="container navcolor">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#n_bar" aria-controls="navbarNavAltMarkup" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon navcolor"></span>
+        </button>
+        <div class="collapse navbar-collapse navcolor justify-content-center" id="n_bar">
+            <ul class="navbar-nav justify-content-center">
+                <li class="nav-item active"><a class="nav-link navcolor text-light" href="/browse">Browse</a></li>
+                <li class="nav-item"><a class="nav-link navcolor text-light" href="/my-recipes">My Recipes</a></li>
+                <li class="nav-item"><a class="nav-link navcolor text-light" href="/recipe-add">Add New Recipe</a></li>
+                <li class="nav-item"><a class="nav-link navcolor text-light" href="/saved-recipes">Saved Recipes</a></li>
+                <li class="nav-item"><a class="nav-link navcolor text-light" href="/logout">Log Out</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="row h-100 justify-content-center align-items-center text-center p-4">
+	<div class="col-10 col-md-8 col-lg-4">
+		<h2 class="sameline">Edit Recipe</h2>
+		<form method="POST" enctype="multipart/form-data" action="">
+		<div class="form-group">
+			<label for="image">Add an image</label>
+			<input type="file" id="file" name="image" class="form-control" accept="image/png, image/jpg, image/jpeg">
+		</div>
+		<br>
+		<div class="form-group">
+			<label for="title">Title:</label>
+			<input type="text" id="title" class="form-control" name="title" value="{{recipe.title}}" required>
+		</div>
+		<br>
+		<div class="form-group">
+			<label for="estimatedTime">Estimated Time (mins):</label>
+			<input type="number" id="estimatedTime" class="form-control" name="estimatedTime" value="{{recipe.estimatedTime}}" min="1" required>
+		</div>
+		<br>
+		<div class="form-group">
+			<label for="numServings">Number of Servings:</label>
+			<input type="number" id="numServings" class="form-control" name="numServings" value="{{recipe.numServings}}" min="1" required>
+		</div>
+		<br>
+		<div class="form-group">
+			<label for="estimatedCost">Estimated Cost (USD):</label>
+			<input type="number" id="estimatedCost" class="form-control" name="estimatedCost" value="{{recipe.estimatedCost}}" min="1" required>
+		</div>
+		<br>
+		<div class="form-group">
+			<label for="difficultyLevel">Difficulty Level:</label>
+			<select id="difficultyLevel" class="form-control" name="difficultyLevel" value="{{recipe.difficultyLevel}}" required>
+				<option value="Easy">Easy</option>
+				<option value="Medium">Medium</option>
+				<option value="Difficult">Difficult</option>
+			</select>
+		</div>
+		<br>
+		<div class="form-group">
+			<label for="cuisine">Cuisine:</label>
+			<input type="text" id="cuisine" class="form-control" name="cuisine" value="{{recipe.cuisine}}" required>
+		</div>
+		<br>
+		<div class="form-group">
+			<label for="description">Description:</label>
+			<input type="text" id="description" class="form-control" name="description" value="{{recipe.description}}" required>
+		</div>
+		<br>
+		<div class="form-group">
+			<label for="ingredients">Ingredients:</label>
+			<input type="text" id="ingredients" class="form-control" name="ingredients" value="{{recipe.ingredients}}" required>
+		</div>
+		<br>
+		<div class="form-group">
+			<label for="instructions">Instructions:</label>
+			<input type="text" id="instructions" class="form-control" name="instructions" value="{{recipe.instructions}}" required>
+		</div>
+		<br>
+		<div class="form-input pb-5">
+			<input type="submit" value="Update Recipe" class="btn btn-outline-success">
+		</div>
+		</form>
+
+	</div>
+</div>

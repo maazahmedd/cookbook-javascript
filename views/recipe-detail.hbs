@@ -1,0 +1,68 @@
+<nav class="navbar navbar-expand-sm navbar-dark">
+    <div class="container navcolor">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#n_bar" aria-controls="navbarNavAltMarkup" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon navcolor"></span>
+        </button>
+        <div class="collapse navbar-collapse navcolor justify-content-center" id="n_bar">
+            <ul class="navbar-nav justify-content-center">
+                <li class="nav-item active"><a class="nav-link navcolor text-light" href="/browse">Browse</a></li>
+                <li class="nav-item"><a class="nav-link navcolor text-light" href="/my-recipes">My Recipes</a></li>
+                <li class="nav-item"><a class="nav-link navcolor text-light" href="/recipe-add">Add New Recipe</a></li>
+                <li class="nav-item"><a class="nav-link navcolor text-light" href="/saved-recipes">Saved Recipes</a></li>
+                <li class="nav-item"><a class="nav-link navcolor text-light" href="/logout">Log Out</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="text-center p-4">
+<h2 class="sameline">{{recipe.title}} - posted by {{recipe.user.username}}</h2>
+<h5 class="color-purple">{{recipe.description}}</h5>
+<br>
+<div><img src="/{{path}}" height="220px" alt="This is the recipe image"></div>
+<br>
+<div><a class="bolded text-dark">Estimated Time: </a>{{recipe.estimatedTime}} minutes</div>
+<br>
+<div><a class="bolded text-dark">Number of Servings: </a>{{recipe.numServings}}</div>
+<br>
+<div><a class="bolded text-dark">Estimated Cost: </a>${{recipe.estimatedCost}}</div>
+<br>
+<div><a class="bolded text-dark">Difficulty Level: </a>{{recipe.difficultyLevel}}</div>
+<br>
+<div><a class="bolded text-dark">Cuisine: </a>{{recipe.cuisine}}</div>
+<br>
+<div><a class="bolded text-dark">Ingredients: </a>{{recipe.ingredients}}</div>
+<br>
+<div><a class="bolded text-dark">Instructions: </a>{{recipe.instructions}}</div>
+<br>
+
+<h3>Comments</h3>
+<ul>
+{{#each comments as |c|}}
+<li><a class="bolded text-dark">{{user.username}}:</a> {{description}}</li>
+{{/each}}
+</ul>
+
+
+<div class="row h-100 justify-content-center align-items-center text-center">
+	<div class="col-10 col-md-8 col-lg-3">
+		<form method="POST" action="">
+			<div class="form-group">
+				<label for="description" class="pb-2 bolded">Any comments?</label><br>
+				<input type="text" id="description" class="form-control" name="description" value="" placeholder="Add comment">
+			</div>
+			<br>
+			<div class="form-input pb-3">
+			<input type="submit" value="Add" class="btn btn-outline-success">
+		</div>
+		</form>
+	</div>
+</div>
+
+{{#if recipeSaved}}
+<a class="save btn btn-danger" href="/recipe/{{slug}}/save">unsave recipe</a>
+{{else}}
+<a class="save btn btn-success" href="/recipe/{{slug}}/save">save recipe</a>
+{{/if}}
+
+</div>

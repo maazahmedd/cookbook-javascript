@@ -1,0 +1,29 @@
+<div class="row h-100 justify-content-center align-items-center text-center">
+	<div class="col-10 col-md-8 col-lg-3">
+		<img src="/logo.png" class="logo rounded py-0 img-fluid">
+		<h2 class="pt-4">Register</h2>
+		<br>
+		{{#if message}}
+		<div class="text-danger error">{{message}}</div>
+		{{/if}}
+		<form method="POST" action="register">
+			<div class="form-group">
+				<label for="username" class="pb-2">Username</label><br>
+				<input type="text" id="username" class="form-control" name="username" value="" minLength="8" placeholder="Enter username" required>
+				<small class="form-text text-muted">We'll never share your username with anyone.</small>
+			</div>
+			<br>
+			<div class="form-group">
+				<label for="password" class="pb-2">Password</label><br> 
+				<input type="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" class="form-control" name="password" value="" minLength="8" placeholder="Enter password" required>
+			</div>
+			<br>
+			<div class="form-input pb-5">
+			<input type="submit" value="Register" class="btn btn-outline-success">
+			</div>
+		</form>
+
+
+		<a class="btn btn-primary" href="/login">Login instead</a>
+	</div>
+</div>

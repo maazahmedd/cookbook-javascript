@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-sm navbar-dark">
+    <div class="container navcolor">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#n_bar" aria-controls="navbarNavAltMarkup" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon navcolor"></span>
+        </button>
+        <div class="collapse navbar-collapse navcolor justify-content-center" id="n_bar">
+            <ul class="navbar-nav justify-content-center">
+                <li class="nav-item active"><a class="nav-link navcolor text-light" href="/browse">Browse</a></li>
+                <li class="nav-item"><a class="nav-link navcolor text-light" href="/my-recipes">My Recipes</a></li>
+                <li class="nav-item"><a class="nav-link navcolor text-light" href="/recipe-add">Add New Recipe</a></li>
+                <li class="nav-item"><a class="nav-link navcolor text-light" href="/saved-recipes">Saved Recipes</a></li>
+                <li class="nav-item"><a class="nav-link navcolor text-light" href="/logout">Log Out</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div>
+    <h2 class="pt-3 text-center">Posted recipes</h2>
+    <ol class="pt-3">
+        {{#each recipes as |r|}}
+        
+        <li class="pb-3">
+            <a class="bolded text-dark">{{title}}</a> - {{description}}<br>
+            <div class="py-2">
+                <div class="browsing-image">
+                    <img src="/images/{{image}}" class="rounded browse-image">
+                </div>
+                <div class="browsing-text">
+                    Time commitment - {{estimatedTime}} minutes<br>
+                    Estimated Cost - ${{estimatedCost}}<br>
+                    Difficulty Level - {{difficultyLevel}}<br>
+                    Cuisine - {{cuisine}}
+                </div>
+            </div>
+            <div>
+                <a class="btn btn-primary" href="/recipe/{{slug}}">details</a>
+            </div>
+        </li>
+        {{/each}}
+    </ol>
+    <br>
+</div>
